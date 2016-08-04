@@ -9,11 +9,9 @@
 * [Templates](#templates)
 * [Routing](#routing)
 * [Ember data](#ember-data)
-
 * [Testing](#testing)
 * [JSDoc](#jsdoc)
 * [Promises](#promises)
-
 
 ## General
 
