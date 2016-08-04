@@ -10,6 +10,10 @@
 * [Routing](#routing)
 * [Ember data](#ember-data)
 
+* [Testing](#testing)
+* [JSDoc](#jsdoc)
+* [Promises](#promises)
+
 
 ## General
 
@@ -446,3 +450,14 @@ export default Model.extend({
   jerseyNumber: attr()
 });
 ```
+
+## Testing
+Use data-test-selector attribute instead of the class attribute as selectors
+
+## JSDoc
+If nessesary add [JSDoc](http://usejsdoc.org/) to your code
+or add normal comments explaning *why*
+
+## Promises
+Chain promisses instead of nesting
+
