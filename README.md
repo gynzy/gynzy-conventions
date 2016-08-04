@@ -1,2 +1,6 @@
-# gynzy-conventions
-code conventions used at Gynzy
+# Gynzy Conventions
+
+
+
+[Ember styleguide](./ember-styleguide.md)
+
