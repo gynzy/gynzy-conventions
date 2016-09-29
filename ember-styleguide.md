@@ -460,6 +460,7 @@ The directory the page object should be places should correspond with either the
 Components are just plain JavaScript objectst, because they are used in a `PageObject`.
 ```javascript
 // example component /tests/pages/components/world-overview.js
+
 import PageObject from 'leerling/tests/page-object';
 
 let {
@@ -482,13 +483,48 @@ export default {
 	}
 };
 ```
+Now you can use the component in a component test like so.
+```javascript
+import PageObject from 'leerling/tests/page-object';
+// import the component to test
+import WorldsOverview from 'leerling/tests/pages/components/worlds-overview';
+
+// create a 'page' with the component to test
+let page = PageObject.create({
+	component: WorldsOverview
+});
+
+// don't forget to set the PageObject context in de beforeEach and remove it in the afterEach
+moduleForComponent('worlds-overview', 'Integration | Component | worlds overview', {
+	integration: true,
+
+	beforeEach() {
+		page.setContext(this);
+	},
+
+	afterEach() {
+		page.removeContext();
+	}
+});
+
+test('student -> two rows of worlds rendering', function(assert) {
+	// some stuff to render the component should be here...
+
+	let component = page.component;
+	assert.equal(component.worldRows().count, 2, 'Rows found');
+	assert.equal(component.worldRows(0).worlds().count, 3, 'Three globes on the first row found');
+	assert.equal(component.worldRows(0).worlds(0).name, 'First', 'Sorting should place first chapter on first position');
+	assert.notOk(component.worldRows(0).worlds(0).isLocked, 'First world is not locked');
+});
+
+```
 #### Page example
 Pages should be an instance of `PageObject`.
 ```javascript
 // example page /tests/pages/tablero/method/worlds.js
 
 import PageObject from 'leerling/tests/page-object';
-// a wild component appeared!
+// a wild component appears!
 import WorldsOverviewComponent from 'leerling/tests/pages/components/worlds-overview';
 
 let {
@@ -503,6 +539,22 @@ export default PageObject.create({
 	worldsOverviewComponent: WorldsOverviewComponent
 });
 ```
+And test the page like so.
+```javascript
+// moar imports here obviously...
+import methodWorlds from 'leerling/tests/pages/tablero/method/worlds';
+
+moduleForAcceptance('Acceptatie - suite4 - world overview');
+
+test('student world overview with lessons', function() {
+	// path to the page,
+	methodWorlds.visit().then(() => {
+		ok(methodWorlds.visible, 'The world page is visible');
+		ok(methodWorlds.worldsOverviewComponent.lessonWorldToggle.visible, 'The toggle is visible');
+	});
+});
+```
+
 ### Selectors
 Use data-test-selector attribute instead of the class attribute as selectors.
 
@@ -518,4 +570,4 @@ Chain promisses instead of nesting.
 > - Someone, somewhere, sometime at Gynzy
 
 Use [Ember-i18n](https://github.com/jamesarosen/ember-i18n).
-Combine translations of a page in one file. The directory of the file should correspond to the route of the page where it can be found, or in case of a component the directory.
+Combine translations of a page in one file. The directory of the file should correspond to the route of the page where it can be found, or in case of a component the directory where the component is located.
