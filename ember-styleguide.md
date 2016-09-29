@@ -97,7 +97,7 @@ export default Model.extend({
 });
 ```
 
-### Use `get` and `set`
+### Don't use `get` and `set`, unless...
 
 Calling `someObj.get('prop')` couples your code to the fact that
 `someObj` is an Ember Object. It prevents you from passing in a
@@ -105,11 +105,17 @@ POJO, which is sometimes preferable in testing. It also yields a more
 informative error when called with `null` or `undefined`.
 
 Although when defining a method in a controller, component, etc. you
-can be fairly sure `this` is an Ember Object, for consistency with the
-above, we still use `get`/`set`.
+can be fairly sure `this` is an Ember Object.
+Because we think the code is clearer when using `this.get` or `someVar.set`
+we will use that. The pro's of using `get` are there, so we could use them
+when creating a more generic addon. 
 
 ```js
-// Good
+// Preferable because we are pretty sure we are using Ember objects
+this.set('isSelected', true);
+this.get('isSelected');
+
+// In some more generic occasions this is fine
 import Ember from 'ember';
 
 const { get, set } = Ember;
@@ -117,10 +123,6 @@ const { get, set } = Ember;
 set(this, 'isSelected', true);
 get(this, 'isSelected');
 
-// Bad
-
-this.set('isSelected', true);
-this.get('isSelected');
 ```
 
 ### Use brace expansion
@@ -563,11 +565,11 @@ If nessesary add [JSDoc](http://usejsdoc.org/) to your code,
 or add normal comments explaning *why*.
 
 ## Promises
-Chain promisses instead of nesting.
+Chain promises instead of nesting.
 
 ## i18n
 > *There shall be no plain text in our templates!*
-> - Someone, somewhere, sometime at Gynzy
+> - Someone, sometime at Gynzy
 
 Use [Ember-i18n](https://github.com/jamesarosen/ember-i18n).
 Combine translations of a page in one file. The directory of the file should correspond to the route of the page where it can be found, or in case of a component the directory where the component is located.
