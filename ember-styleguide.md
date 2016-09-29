@@ -12,6 +12,7 @@
 * [Testing](#testing)
 * [JSDoc](#jsdoc)
 * [Promises](#promises)
+* [Internationalization (i18n)](#i18n)
 
 ## General
 
@@ -450,12 +451,71 @@ export default Model.extend({
 ```
 
 ## Testing
-Use data-test-selector attribute instead of the class attribute as selectors
+
+### Use Page Objects
+For keeping our tests clean and maintainable we use [Ember-cli Page Objects](http://ember-cli-page-object.js.org/).
+Create a page object for every component and every page. The page objects can be found in `/tests/pages/`.
+The directory the page object should be places should correspond with either the name of the route of the page or the directory of the component.
+#### Component example
+Components are just plain JavaScript objectst, because they are used in a `PageObject`.
+```javascript
+// example component /tests/pages/components/world-overview.js
+import PageObject from 'leerling/tests/page-object';
+
+let {
+	clickable,
+	collection,
+	isVisible,
+	text
+} = PageObject;
+
+export default {
+	scope: '[data-test-selector="worlds-container"]',
+	resetScope: true,
+
+	lessonWorldToggle: {
+		scope: '.toggle-buttons-component',
+		visible: isVisible(''),
+		clickLessons: clickable('a:first'),
+		clickWorlds: clickable('a:last'),
+		selected: text('a.button-normal-blue')
+	}
+};
+```
+#### Page example
+Pages should be an instance of `PageObject`.
+```javascript
+// example page /tests/pages/tablero/method/worlds.js
+
+import PageObject from 'leerling/tests/page-object';
+// a wild component appeared!
+import WorldsOverviewComponent from 'leerling/tests/pages/components/worlds-overview';
+
+let {
+	visitable,
+	isVisible
+} = PageObject;
+
+export default PageObject.create({
+	visit: visitable('/tablero/method/:leergebied_id/:klasMethode_id/worlds'),
+	visible: isVisible('[data-test-selector="worlds-container"]'),
+
+	worldsOverviewComponent: WorldsOverviewComponent
+});
+```
+### Selectors
+Use data-test-selector attribute instead of the class attribute as selectors.
 
 ## JSDoc
-If nessesary add [JSDoc](http://usejsdoc.org/) to your code
-or add normal comments explaning *why*
+If nessesary add [JSDoc](http://usejsdoc.org/) to your code,
+or add normal comments explaning *why*.
 
 ## Promises
-Chain promisses instead of nesting
+Chain promisses instead of nesting.
 
+## i18n
+> *There shall be no plain text in our templates!*
+> - Someone, somewhere, sometime at Gynzy
+
+Use [Ember-i18n](https://github.com/jamesarosen/ember-i18n).
+Combine translations of a page in one file. The directory of the file should correspond to the route of the page where it can be found, or in case of a component the directory.
