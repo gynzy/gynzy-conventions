@@ -71,6 +71,28 @@ export default DS.Model.extend({
 });
 ```
 
+When destructuring make sure you don't accidentaly overwrite default javascript object. 
+``` javascript
+// Good
+const {
+    RSVP
+} = Ember;
+
+return RSVP.Promise.resolve();
+
+// Bad
+const {
+    Object,  // Overwrites the default javascript Object.
+    RSVP: {
+        Promise  // Overwrites the default promise Object.
+    }
+} = Ember;
+
+return new Promise((res) => {
+    res(Object.create({}));
+});
+```
+
 ### Do not use Ember's `function` prototype extensions
 
 ```javascript
