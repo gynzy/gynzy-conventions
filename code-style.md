@@ -154,7 +154,7 @@ doStuff('a', {
 ### Niet meer dan 50 regels
 Het is heel makkelijk om een `doEverything` functie te maken maar leesbaar en aanpasbaar is het niet. Vandaar dat een harde limiet van maximaal 50 regels effectieve code per functie is. Hier vallen niet whitespaces, comments en documentatie onder.
 ### Fail fast
-`Cannot call .foo of undefined` Foutmeldingen zijn naar. Helemaal naar is het wanneer er gezocht moet worden waar het precies misgaat en zeker met de "flexibiliteit" van Javascript kan dat een eindje verderop zijn. Vandaar dat het belangrijk is dat een functie snel faalt. 
+`Cannot call .foo of undefined` Foutmeldingen zijn naar. Helemaal naar is het wanneer er gezocht moet worden waar het precies misgaat en zeker met de "flexibiliteit" van Javascript kan dat een eindje verderop zijn. Vandaar dat het belangrijk is dat een functie snel faalt.
 
 Denk hierbij aan checks of de meegegven data plausibel is maar wees ook niet bang om keihard errors te gooien wanneer er iets niet klopt. De melding `foo is undefined, probally because the wrong id's are passed` is duidelijker dan `Cannot call id of undefined`.
 ``` javascript
@@ -169,7 +169,7 @@ doStuff();
 // GOOD
 function doStuff(a) {
 	if (typeof a !== 'number') {
-		throw new Error('`a` Should be a number in `doStuff`. Was: ' + typeof a); 	
+		throw new Error('`a` Should be a number in `doStuff`. Was: ' + typeof a);
 	}
 
 	let b = a + 3;
@@ -179,4 +179,6 @@ function doStuff(a) {
 doStuff();
 ```
 ## Variabele
-
+### Gedocumenteerd (optioneel)
+### Naamgeving geeft type aan
+### private bevat _ aan het begin
