@@ -22,11 +22,11 @@ Third parties hebben over het algemeen een eigen interface waar tegen gepraat wo
 
 Een ander groot voordeel van een eigen interface is dat er ES6 technieken gebruikt kunnen worden die mogelijk niet in de library zitten. Denk bijvoorbeeld aan correct gebruik van `class`.
 
-## testen Doordat een module maar een beperkt aantal entrypunten heeft is het makkelijk om
-het geheel te testen. Immers er zijn maar een paar entries die getest moeten worden en zoals hierboven te lezen is bij wijzigingen hoeft de test niet aangepast te worden.
+## testen
+Doordat een module maar een beperkt aantal entrypunten heeft is het makkelijk om het geheel te testen. Immers er zijn maar een paar entries die getest moeten worden en zoals hierboven te lezen is bij wijzigingen hoeft de test niet aangepast te worden.
 
 # Algemene structuur package
-modules Om verwarring te voorkomen bij het gebruik maken van modules is het belangrijk dat er bepaalde conventies gevolgd worden qua naamgeving maar ook qua opbouw van een module.
+Om verwarring te voorkomen bij het gebruik maken van modules is het belangrijk dat er bepaalde conventies gevolgd worden qua naamgeving maar ook qua opbouw van een module.
 
 ``` javascript
 // GOOD
@@ -54,6 +54,8 @@ module.exports = {
 }
 ```
 Modules dienen altijd opgebouwd te worden met es6 classes. Daarnaast is het belangrijk om niet een geinstantieerde waarde van de class te maken in de module zelf. Het instantieren is namelijk verantwoordelijkheid van de module die deze class gebruikt. Door altijd deze verplichting te hebben hoeft niet gegokt te worden of iets een instantie is of een klas.
+
+Door classes te gebruiken is het daarnaast ook gemakkelijk om inheritance toe te passen.
 
 ## singletons
 Omdat er geen private/public in javascript is kan er niet op de standaard manier een singleton aangemaakt worden. Wat wel kan is niet de class exporteren maar een object met een functie om de instantie aan te maken.
