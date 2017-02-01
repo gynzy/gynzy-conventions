@@ -21,7 +21,7 @@ const myModule = require('./my-module.js');
 const MySingleton = require('./my-singleton.js');
 
 // GOOD
-const MyModule = require('./my-module.js'); 
+const MyModule = require('./my-module.js');
 const mySingleton = require('./my-singleton.js').getInstance();
 ```
 #### Geen instance export
@@ -66,14 +66,14 @@ Elke module zou 1 class moeten exporteren of een functie om de instantie op te h
 Een class heeft altijd documentatie. Op deze manier kan snel gekeken worden wat een klasprecies doet en daarnaast of bepaalde eigenschappen/side effects zijn waar rekening mee gehouden moet worden.
 ``` javascript
 /**
- * MyClass is my first class which does awesome things. It can be used for 
+ * MyClass is my first class which does awesome things. It can be used for
  * "Hello world" programs.
  */
 class MyClass {
 	// Code ...
 }
 ```
-## Functions 
+## Functions
 ### checklist
 ### onderbouwing
 ## Variabele
