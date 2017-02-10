@@ -7,8 +7,12 @@ Om ervoor te zorgen dat de gemaakte code van hoge kwaliteit is is het belangrijk
 - [ ] Instanties bij een require beginnen met een kleine letter
 - [ ] Classes bij een require beginnen met een hoofdletter
 - [ ] Er worden geen instanties geexporteerd
+
 ### Classes
 - [ ] Documentatie is aanwezig
+- [ ] Alle variabele zijn private. (beginnen met een `_`)
+- [ ] Getters en Setters voor de variabele die van buiten af aan te roepen zijn.
+
 ### Functions
 - [ ] Documentatie is aanwezig (in ieder geval voor de parameters/return waarde)
 - [ ] Functie naam detoneerd een actie (bevat een werkwoord)
@@ -17,6 +21,12 @@ Om ervoor te zorgen dat de gemaakte code van hoge kwaliteit is is het belangrijk
 - [ ] Niet meer dan 50 regels
 - [ ] Functie checkt input waardes en faalt waar nodig
 - [ ] Functie bevat goede foutmelding, waarom en waar
+
+### Variabele
+- [ ] Geen `var`.
+- [ ] `const` Alleen voor constante gebruikt.
+- [ ] Duidelijke naam die ook het type object suggereert.
+- [ ] `_` Bij private waardes.
 
 ## Modules
 ### Altijd const bij require
@@ -112,6 +122,7 @@ class MyClass {
 	set foo(value) {
 		this._foo = value;
 	}
+
 	constructor() {
 		this._foo = 'bar';
 	}
@@ -269,7 +280,7 @@ Om snel te weten welk type een waarde heeft is het handig om de variabele naam z
 ``` javascript
 // BAD suggest the list contains microgoal objects
 var microgoals = [1, 2, 3];
-// GOOD 
+// GOOD
 var microgoalIds = [1, 2, 3];
 ```
 ### private bevat _ aan het begin
@@ -280,4 +291,7 @@ let foo_NIET_AANKOMEN = 'private tekst';
 
 // GOOD
 let _foo = 'private tekst';
+set _foo() {
+	// ...
+}
 ```
