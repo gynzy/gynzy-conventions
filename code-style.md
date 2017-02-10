@@ -75,7 +75,7 @@ module.exports = {
 
 ## Classes
 Elke module zou 1 class moeten exporteren of een functie om de instantie op te halen (in het geval van een singleton). Daarnaast dient er bovenaan de class een beschrijving te staan waar de class verantwoordelijk voor is en wat het dus globaal doet.
-### documenatie
+### Gedocumenteerd
 Een class heeft altijd documentatie. Op deze manier kan snel gekeken worden wat een klasprecies doet en daarnaast of bepaalde eigenschappen/side effects zijn waar rekening mee gehouden moet worden.
 ``` javascript
 /**
@@ -84,6 +84,73 @@ Een class heeft altijd documentatie. Op deze manier kan snel gekeken worden wat 
  */
 class MyClass {
 	// Code ...
+}
+```
+### class variabele
+Sinds Node 6 worden `getters` en `setters` ondersteund. Dit maakt het mogelijk om heel selectief bepaalde waarde te exposen van je klas. Dit zorgt er ook voor dat het mogelijk is om validatie toe te passen op de waardes die gezet worden alsook het voorkomen van het setten van bepaalde variabele. Een bijkomend effect van het gebruik van getters en setters is dat alle variabele van je klasse per definitie private zijn.
+#### pros
+* Zelf documenterend. De properties die een implementerende klasse kan gebruiken zijn gelijk zichtbaar.
+* Read-only properties zijn mogelijk door geen `set` te maken.
+* Validatie van de properties is mogelijk bij een `set`.
+* Properties kunnen makkelijk en overzichtelijk gedocumenteerd worden qua type.
+* Het exposen van properties is een bewuste keuze en voorkomt dat properties aangepast worden die stiekem toch private waren.
+* Ondersteund static properties. `static get foo() { return 'bar' }`
+#### cons
+* Meer code om te schrijven.
+``` javascript
+class MyClass {
+	// BAD
+	constructor() {
+		this.foo = 'bar';
+	}
+
+	// GOOD
+	get foo() {
+		return this._foo;
+	}
+
+	set foo(value) {
+		this._foo = value;
+	}
+	constructor() {
+		this._foo = 'bar';
+	}
+}
+```
+### Volgorde data
+Om zo veel mogelijk zelf documenterend te zijn is het van belang dat alles gestructureerd staat. Op deze manier is het voor een programmeur altijd makkelijk om te achterhalen welke functionaliteit een bepaalde klasse bied. Vandaar de afspraak om altijd eerst de properties van een klas te tonen, daarna de constructor, daarna de functies gevolgd door de private functies.
+``` javascript
+// BAD
+class MyClass {
+	foo() {
+		// ...
+	}
+
+	get bar() {}
+
+	constructor() {
+		// ...
+	}
+
+	set bar() {}
+}
+
+// GOOD
+class MyClass {
+	get bar() {}
+	set bar() {}
+
+	constructor() {
+		// ...
+	}
+
+	foo() {
+		// ...
+	}
+
+	_foo() {
+		// ...
+	}
 }
 ```
 ## Functions
@@ -179,6 +246,38 @@ function doStuff(a) {
 doStuff();
 ```
 ## Variabele
-### Gedocumenteerd (optioneel)
+### let, const, var
+`var` Niet gebruiken. Het verschil tussen `const` en `let` is wat subtieler. `const` Suggereert namelijk dat het om een constante waarde gaat echter geeft dit alleen aan dat er geen nieuwe waarde aan deze property toegekend kan worden. Nu is het wel belangrijk om constante waardes te hebben en vandaar de afspraak dat `const` properties niet aangepast mogen worden. `let` Wordt voor alle andere properties gebruikt.
+``` javascript
+// BAD
+var foo = 'bar';
+
+// BAD
+const foo = {};
+foo.bar = 'bar';
+
+// GOOD
+let foo = 'bar';
+foo = 'foobar';
+
+// GOOD
+let foo = {};
+foo.bar = 'bar';
+```
 ### Naamgeving geeft type aan
+Om snel te weten welk type een waarde heeft is het handig om de variabele naam zo te maken dat het type makkelijk te raden is. Denk aan bijvoorbeeld `students` wat een lijst van `student` modellen is.
+``` javascript
+// BAD suggest the list contains microgoal objects
+var microgoals = [1, 2, 3];
+// GOOD 
+var microgoalIds = [1, 2, 3];
+```
 ### private bevat _ aan het begin
+Javascript ondersteund geen private waardes. Vandaar dat de afspraak is dat private properties altijd met een `_` beginnen. Deze properties mogen dus niet vanuit een andere klasse aangeroepen worden (met uitzondering van tests).
+``` javascript
+// BAD
+let foo_NIET_AANKOMEN = 'private tekst';
+
+// GOOD
+let _foo = 'private tekst';
+```
