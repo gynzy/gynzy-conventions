@@ -212,7 +212,7 @@ function doStuffAsync() {
 	return Promise.resolve();
 }
 ```
-### optionele params in object
+### Optionele params in object
 Het is vrij makkelijk om optionele parameters te maken binnen javascript. Het probleem is wanneer een functie uitgebreid wordt met een extra param, omdat die nodig is. De aanroep heel veel `null` waardes bevat. Dit maakt het geheel minder leesbaar en daarnaast lastig te begrijpen. Vandaar dat het belangrijk is om optionele parameters altijd in een object te plaatsen.
 ``` javascript
 // BAD
