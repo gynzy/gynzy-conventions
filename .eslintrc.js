@@ -7,15 +7,13 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	extends: ['eslint:recommended'],
+	extends: ['eslint:recommended', 'plugin:prettier/recommended'],
 	parserOptions: {
 		sourceType: 'module',
 		ecmaVersion: 8,
 	},
 	rules: {
 		'linebreak-style': ['error', 'unix'],
-		quotes: ['error', 'single'],
-		semi: ['error', 'always'],
 		'valid-jsdoc': ['error'],
 		'require-jsdoc': [ 'warn', {
 			'require': {
@@ -34,6 +32,5 @@ module.exports = {
 		'no-var': ['error'],
 		'prefer-const': ['error'],
 		'one-var-declaration-per-line': ['error'],
-		'max-len': ['error', { code: 120 }],
 	},
 };

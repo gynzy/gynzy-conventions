@@ -6,6 +6,7 @@ rules=( "valid-jsdoc: error"
 	"complexity: [error, 10]"
 	"max-params: [error, 5]"
 	"no-param-reassign: [error]"
+	"max-len: [error, 120]"
 )
 
 echo "=== Total ==="
