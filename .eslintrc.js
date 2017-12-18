@@ -1,3 +1,6 @@
+/**
+ * ESLint config for main code modules.
+ */
 module.exports = {
 	root: true,
 	env: {

@@ -1,0 +1,12 @@
+{
+  "name": "gynzy-conventions",
+  "version": "0.0.1",
+  "description": "Code conventions and lint configs for the Raptor squad",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gynzy/gynzy-conventions.git"
+  },
+  "author": "Gynzy Kids B.V.",
+  "files": [".eslintrc.js", ".eslintrc.test.js"]
+}
