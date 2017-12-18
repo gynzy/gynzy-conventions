@@ -34,5 +34,6 @@ module.exports = {
 		'no-var': ['error'],
 		'prefer-const': ['error'],
 		'one-var-declaration-per-line': ['error'],
+		'max-len': ['error', { code: 120 }],
 	},
 };
