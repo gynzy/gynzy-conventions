@@ -15,7 +15,7 @@ module.exports = {
 	rules: {
 		'linebreak-style': ['error', 'unix'],
 		'valid-jsdoc': ['error'],
-		'require-jsdoc': [ 'warn', {
+		'require-jsdoc': ['error', {
 			'require': {
 				'FunctionDeclaration': true,
 				'MethodDefinition': true,
