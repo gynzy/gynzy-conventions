@@ -8,7 +8,9 @@
     "url": "git+ssh://git@github.com/gynzy/gynzy-conventions.git"
   },
   "author": "Gynzy Kids B.V.",
-  "files": ["configs/*"],
+  "files": [
+    "configs/*"
+  ],
   "peerDependencies": {
     "eslint": "^4.13.1",
     "eslint-config-prettier": "^2.9.0",
