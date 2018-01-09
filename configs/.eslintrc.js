@@ -15,13 +15,16 @@ module.exports = {
 	rules: {
 		'linebreak-style': ['error', 'unix'],
 		'valid-jsdoc': ['error'],
-		'require-jsdoc': ['error', {
-			'require': {
-				'FunctionDeclaration': true,
-				'MethodDefinition': true,
-				'ClassDeclaration': true
-			}
-		}],
+		'require-jsdoc': [
+			'error',
+			{
+				require: {
+					FunctionDeclaration: true,
+					MethodDefinition: true,
+					ClassDeclaration: true,
+				},
+			},
+		],
 		'max-statements': ['error', 20],
 		complexity: ['error', 10],
 		'max-depth': ['error', 5],
@@ -30,7 +33,12 @@ module.exports = {
 		'prefer-arrow-callback': ['error'],
 		'no-param-reassign': ['error'],
 		'no-var': ['error'],
-		'prefer-const': ['error'],
+		'prefer-const': [
+			'error',
+			{
+				destructuring: 'all',
+			},
+		],
 		'one-var-declaration-per-line': ['error'],
 	},
 };
