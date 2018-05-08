@@ -8,6 +8,20 @@ To install this package:
 npm install --save-dev git+ssh://git@github.com:gynzy/gynzy-conventions.git
 ```
 
+This might produce warnings about peers required by this package:
+
+```
+npm WARN gynzy-conventions@0.0.1 requires a peer of eslint@^4.13.1 but none is installed. You must install peer dependencies yourself.
+```
+Install each of these to resolve this, otherwise ESLint might not work properly:
+
+```
+npm install --save-dev eslint
+npm install --save-dev prettier
+npm install --save-dev eslint-plugin-ava
+...
+```
+
 ## Integrating Configs
 To integrate an ESLint configuration of this repository in a _child_ repo, add a `.eslintrc.js` file containing:
 ```js
