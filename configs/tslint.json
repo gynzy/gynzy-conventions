@@ -27,6 +27,7 @@
 		"interface-name": [true, "never-prefix"],
 		"one-variable-per-declaration": false,
 		"object-literal-sort-keys": false,
-		"radix": false
+		"radix": false,
+		"no-namespace": [true, "allow-declarations"]
 	}
 }
