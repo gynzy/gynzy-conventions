@@ -43,5 +43,6 @@ module.exports = {
 			},
 		],
 		'one-var-declaration-per-line': ['error'],
+		'no-return-await': ['error']
 	},
 };
