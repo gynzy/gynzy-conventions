@@ -1,0 +1,33 @@
+{
+	"extends": "tslint:recommended",
+	"rules": {
+		"indent": [true, "tabs"],
+		"linebreak-style": ["LF"],
+		"valid-jsdoc": ["error"],
+		"require-jsdoc": [
+			"error",
+			{
+				"require": {
+					"FunctionDeclaration": true,
+					"MethodDefinition": true,
+					"ClassDeclaration": true
+				}
+			}
+		],
+		"max-statements": ["error", 20],
+		"complexity": ["error", 10],
+		"max-depth": ["error", 5],
+		"max-params": ["error", 5],
+		"require-await": ["error"],
+		"prefer-arrow-callback": ["error"],
+		"no-param-reassign": ["error"],
+		"no-var": ["error"],
+		"one-var-declaration-per-line": ["error"],
+		"quotemark": [true, "single", "avoid-escape"],
+		"interface-name": [true, "never-prefix"],
+		"one-variable-per-declaration": false,
+		"object-literal-sort-keys": false,
+		"radix": false,
+		"no-namespace": [true, "allow-declarations"]
+	}
+}
