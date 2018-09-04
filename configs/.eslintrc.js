@@ -16,10 +16,10 @@ module.exports = {
 		},
 	},
 	rules: {
-		'linebreak-style': ['error', 'unix'],
-		'valid-jsdoc': ['error'],
+		'linebreak-style': ['warn', 'unix'],
+		'valid-jsdoc': ['warn'],
 		'require-jsdoc': [
-			'error',
+			'warn',
 			{
 				require: {
 					FunctionDeclaration: true,
@@ -28,21 +28,22 @@ module.exports = {
 				},
 			},
 		],
-		'max-statements': ['error', 20],
-		complexity: ['error', 10],
-		'max-depth': ['error', 5],
-		'max-params': ['error', 5],
-		'require-await': ['error'],
-		'prefer-arrow-callback': ['error'],
-		'no-param-reassign': ['error'],
-		'no-var': ['error'],
+		'max-statements': ['warn', 20],
+		'complexity': ['warn', 10],
+		'max-depth': ['warn', 5],
+		'max-params': ['warn', 5],
+		'require-await': ['warn'],
+		'prefer-arrow-callback': ['warn'],
+		'no-param-reassign': ['warn'],
+		'no-var': ['warn'],
 		'prefer-const': [
-			'error',
+			'warn',
 			{
 				destructuring: 'all',
 			},
 		],
-		'one-var-declaration-per-line': ['error'],
-		'no-return-await': ['error']
+		'one-var-declaration-per-line': ['warn'],
+		'no-return-await': ['warn'],
+		'prettier/prettier': ['warn'],
 	},
 };
