@@ -1,6 +1,6 @@
 {
   "name": "gynzy-conventions",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "Code conventions and lint configs for the Raptor squad",
   "private": true,
   "repository": {
