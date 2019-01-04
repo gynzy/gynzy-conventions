@@ -1,8 +1,8 @@
 {
-  "name": "gynzy-conventions",
-  "version": "0.0.6",
-  "description": "Code conventions and lint configs for the Raptor squad",
-  "private": true,
+  "name": "@gynzy/conventions",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "description": "Code conventions and lint configs for Gynzy",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/gynzy/gynzy-conventions.git"
