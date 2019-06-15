@@ -18,6 +18,7 @@ module.exports = {
 		'ember/closure-actions': ['off'],
 		'ember/routes-segments-snake-case': ['off'],
 		'ember/avoid-leaking-state-in-ember-objects': ['warn'],
+		'curly': 'all',
 
 		'no-var': ['error'],
 		'prefer-const': ['error'],
