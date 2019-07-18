@@ -10,7 +10,7 @@ module.exports = {
 	extends: ['eslint:recommended', 'plugin:prettier/recommended'],
 	parserOptions: {
 		sourceType: 'module',
-		ecmaVersion: 9
+    ecmaVersion: 2018,
 	},
 	rules: {
 		'linebreak-style': ['error', 'unix'],

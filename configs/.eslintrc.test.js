@@ -13,6 +13,7 @@ module.exports = {
 		'plugin:ava/recommended',
 	],
 	parserOptions: {
+    ecmaVersion: 2018,
 		sourceType: 'module',
 	},
 	rules: {
