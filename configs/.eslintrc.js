@@ -13,6 +13,12 @@ module.exports = {
 		ecmaVersion: 9
 	},
 	rules: {
+		'max-len': [
+			"error",
+			{
+				"ignorePattern": "^require |^import |^export {(.*?)}|`.*`|'.*'|// .*"
+			}
+		],
 		'linebreak-style': ['error', 'unix'],
 		'valid-jsdoc': ['error'],
 		'require-jsdoc': [

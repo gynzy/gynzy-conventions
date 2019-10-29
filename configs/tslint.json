@@ -2,6 +2,14 @@
 	"extends": "tslint:recommended",
 	"rules": {
 		"indent": [true, "tabs"],
+		"max-line-length": [
+			true,
+			{
+				"limit": 120,
+				"ignore-pattern": "^import |^export {(.*?)}|`.*`|'.*'|// .*",
+				"check-regex": true
+			}
+		],
 		"linebreak-style": ["LF"],
 		"valid-jsdoc": ["error"],
 		"require-jsdoc": [
