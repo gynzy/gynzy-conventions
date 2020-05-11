@@ -2,6 +2,7 @@
  * ESLint config for test modules like ava.
  */
 module.exports = {
+	root: true,
 	env: {
 		es6: true,
 		node: true,

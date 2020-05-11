@@ -1,5 +1,7 @@
 # Gynzy Conventions
-This is the conventions repository. Aside from documenting code conventions used at Gynzy, this repository also holds common ESLint configurations used in our services.
+This is the conventions repository, describing code conventions and provides ESLint configurations used in unicorn services.
+
+[Conventions Wiki](https://github.com/gynzy/gynzy-conventions/wiki)
 
 ## ESLint Installation
 To install this package:
@@ -45,8 +47,3 @@ root/
 +-- .eslintrc.js	(extends .eslintrc.js)
 +-- .prettierrc.js	(requires .prettierrc)
 ```
-
-## Documentation
-[Conventions Wiki](https://github.com/gynzy/gynzy-conventions/wiki)
-
-[Ember styleguide](./ember-styleguide.md)

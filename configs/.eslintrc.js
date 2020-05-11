@@ -7,28 +7,17 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+	extends: ['eslint:recommended', 'plugin:prettier/recommended', 'plugin:jsdoc/recommended'],
 	parserOptions: {
 		sourceType: 'module',
-		ecmaVersion: 9
+		ecmaVersion: 9,
 	},
 	rules: {
 		'linebreak-style': ['error', 'unix'],
-		'valid-jsdoc': ['error'],
-		'require-jsdoc': [
-			'error',
-			{
-				require: {
-					FunctionDeclaration: true,
-					MethodDefinition: true,
-					ClassDeclaration: true,
-				},
-			},
-		],
-		'max-statements': ['error', 20],
-		complexity: ['error', 10],
-		'max-depth': ['error', 5],
-		'max-params': ['error', 5],
+		'max-statements': ['warn', 20],
+		complexity: ['warn', 10],
+		'max-depth': ['warn', 5],
+		'max-params': ['warn', 5],
 		'require-await': ['error'],
 		'prefer-arrow-callback': ['error'],
 		'no-param-reassign': ['error'],
@@ -40,6 +29,8 @@ module.exports = {
 			},
 		],
 		'one-var-declaration-per-line': ['error'],
-		'no-return-await': ['error']
+		'no-return-await': ['error'],
+		'jsdoc/no-undefined-types': 'off',
+		'jsdoc/check-types': 'off',
 	},
 };
