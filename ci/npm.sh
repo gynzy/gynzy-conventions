@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eo pipefail
+set -e
 
 if [ -z "$NPM_TOKEN" ]; then
 	echo "Drone secret 'npm_token' not set."
