@@ -4,7 +4,7 @@ util.workflowJavascriptPackage(
   repositories=['github'],
   packageManager='pnpm',
   branch='main',
-  isPublicFork=false,
+  isPublicFork=true,
   testJob=null,
   buildSteps=[],
 )
